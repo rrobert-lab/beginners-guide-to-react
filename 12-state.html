@@ -6,16 +6,25 @@
   <script type="text/babel">
     function Greeting() {
       const [name, setName] = React.useState('')
+      //desturcture, accept inital value- name when it render
+      //when we call the updater function it triggers a re render and ignore inital value of '' and give use current value
+      //returns an array that 
       const handleChange = event => setName(event.target.value)
+      //accepts event and update state of change. 
+      //const handlechange => event => name = event.target.value would refresh the whole function 
       return (
         <div>
           <form>
             <label htmlFor="name">Name: </label>
             <input onChange={handleChange} id="name" />
+        
           </form>
           {name ? <strong>Hello {name}</strong> : 'Please type your name'}
         </div>
       )
+      //put a form in div is 
+      // is there a name? 
+      // onChange function 
     }
 
     ReactDOM.render(<Greeting />, document.getElementById('root'))
