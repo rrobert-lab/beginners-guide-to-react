@@ -14,7 +14,7 @@
 
       function handleChange(event) {
         setUsername(event.target.value.toLowerCase())
-      }
+      }//b
 
       return (
         <form onSubmit={handleSubmit}>
@@ -23,7 +23,7 @@
             <input
               id="usernameInput"
               type="text"
-              onChange={handleChange}
+              onChange={handleChange}//a
               value={username}
             />
           </div>

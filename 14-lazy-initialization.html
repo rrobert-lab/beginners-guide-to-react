@@ -8,7 +8,7 @@
       const [name, setName] = React.useState(
         () => window.localStorage.getItem('name') || '',
       )
-
+// turning this into a lazy function makes it call when it is only needed
       React.useEffect(() => {
         window.localStorage.setItem('name', name)
       })

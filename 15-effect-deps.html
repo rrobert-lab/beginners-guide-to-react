@@ -12,6 +12,9 @@
       React.useEffect(() => {
         window.localStorage.setItem('name', name)
       }, [name])
+      //[name] is the only that needs to be update if changed
+      // this case local storage with application
+      // plug in to make sure memory is up to date eslint-plugin-react-hooks
 
       const handleChange = event => setName(event.target.value)
 

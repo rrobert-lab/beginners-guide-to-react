@@ -6,9 +6,11 @@
   <script type="text/babel">
     function Greeting() {
       const [name, setName] = React.useState('')
-      //desturcture, accept inital value- name when it render
+      //desturcture, accept inital value- name when it render 
+      //('') means we are using a string
       //when we call the updater function it triggers a re render and ignore inital value of '' and give use current value
       //returns an array that 
+      //setName is a function that updates the state
       const handleChange = event => setName(event.target.value)
       //accepts event and update state of change. 
       //const handlechange => event => name = event.target.value would refresh the whole function 

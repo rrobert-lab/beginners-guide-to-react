@@ -4,29 +4,23 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
-    function Greeting() {
-      const [name, setName] = React.useState(
-        window.localStorage.getItem('name') || '',
+    function useLocalStorageState(key, defaultValue = '') {
+      const [state, setState] = React.useState(
+        () => window.localStorage.getItem(key) || defaultValue,
       )
-// 2 
-// initalize name into local storage
-// some it says lets show what is in storage
-// if nothing in there initalize to empty string
-//turning this into a lazy function will make it call when it needs to be called
+
       React.useEffect(() => {
-        window.localStorage.setItem('name', name)
-      })
-      //1a kinda
-      // calls everything greeting component is render
-      //stores varable under key 'name'
-      // we are putting something in local storage
+        window.localStorage.setItem(key, state)
+      }, [key, state])
+
+      return [state, setState]
+    }
+
+    function Greeting() {
+      const [name, setName] = useLocalStorageState('name')
 
       const handleChange = event => setName(event.target.value)
-      // 1b
-      // has there been a change?
-      // gives you the element that triggers the event
-      // e=> e is a variable of an arrow function so it is target.value associated with e
-      // calls setName to put 
+
       return (
         <div>
           <form>
